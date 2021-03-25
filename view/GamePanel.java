@@ -37,6 +37,14 @@ public class GamePanel {
         controlPanel.setLayout(new GridLayout(1, 1));
 
         newGameButton = new JButton("New Game");
+
+        newGameButton.addActionListener( e -> {
+            window.getContentPane().removeAll();
+            var panel = new GamePanel(window);
+            panel.init();
+            window.pack();
+            window.revalidate();
+        });
         
         controlPanel.add(newGameButton);
 
