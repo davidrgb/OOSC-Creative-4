@@ -19,7 +19,6 @@ public class Club extends Suit implements ISuitRender {
     @Override
     public void render(Graphics2D g2) {
         g2.setColor(Color.BLACK);
-        //g2.drawString("C", xLocation + 10, yLocation + 10);
 
         g2.fillOval(xLocation + X_OFFSET - RADIUS * 2 + BOUNDS / 2, yLocation + Y_OFFSET - RADIUS, RADIUS * 2, RADIUS * 2);
         g2.fillOval(xLocation + X_OFFSET - RADIUS, yLocation + Y_OFFSET - RADIUS * 2 + BOUNDS / 2, RADIUS * 2, RADIUS * 2);
