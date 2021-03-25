@@ -19,7 +19,6 @@ public class Diamond extends Suit implements ISuitRender {
     @Override
     public void render(Graphics2D g2) {
         g2.setColor(Color.RED);
-        //g2.drawString("D", xLocation + 10, yLocation + 10);
 
         int[] xPoints = new int[4];
         int[] yPoints = new int[4];
