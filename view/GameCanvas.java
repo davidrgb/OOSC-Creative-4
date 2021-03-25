@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import model.suits.Diamond; // Remove after testing
 import model.suits.Heart; // Remove later after testing
 
 public class GameCanvas extends JPanel {
@@ -37,6 +38,9 @@ public class GameCanvas extends JPanel {
 
         Heart heart = new Heart(100, 100);
         heart.render(g2);
+
+        Diamond diamond = new Diamond(200, 100);
+        diamond.render(g2);
 
         /* if (panel.getGame().getState() == Game.State.WIN) {
             xOffset = (X_RESOLUTION / 2) - (g.getFontMetrics().stringWidth("YOU WIN") / 2);
