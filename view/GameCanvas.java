@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import model.suits.Club;
 import model.suits.Diamond; // Remove after testing
 import model.suits.Heart; // Remove later after testing
+import model.suits.Spade;
 
 public class GameCanvas extends JPanel {
 
@@ -45,6 +46,9 @@ public class GameCanvas extends JPanel {
 
         Club club = new Club(300, 100);
         club.render(g2);
+
+        Spade spade = new Spade(400, 100);
+        spade.render(g2);
 
         /* if (panel.getGame().getState() == Game.State.WIN) {
             xOffset = (X_RESOLUTION / 2) - (g.getFontMetrics().stringWidth("YOU WIN") / 2);
