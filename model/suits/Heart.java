@@ -4,6 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class Heart extends Suit implements ISuitRender {
+
+    private final int X_OFFSET = 0;
+    private final int Y_OFFSET = 0;
+
+    private final int BOUNDS = 20;
+    private final int RADIUS = 6;
+    private final int CIRCLE_OFFSET = 2;
     
     public Heart(int xLocation, int yLocation) {
         super(xLocation, yLocation);
@@ -12,6 +19,21 @@ public class Heart extends Suit implements ISuitRender {
     @Override
     public void render(Graphics2D g2) {
         g2.setColor(Color.RED);
-        g2.drawString("H", xLocation + 10, yLocation + 10);
+        g2.fillOval(xLocation + X_OFFSET - RADIUS, yLocation + Y_OFFSET - RADIUS, RADIUS * 2, RADIUS * 2);
+        g2.fillOval(xLocation + X_OFFSET - RADIUS + (RADIUS + CIRCLE_OFFSET), yLocation + Y_OFFSET - RADIUS, RADIUS * 2, RADIUS * 2);
+
+        int[] xPoints = new int[3];
+        int[] yPoints = new int[3];
+
+        xPoints[0] = xLocation + X_OFFSET - RADIUS;
+        yPoints[0] = yLocation + Y_OFFSET;
+
+        xPoints[1] = xLocation + X_OFFSET + BOUNDS - RADIUS;
+        yPoints[1] = yLocation + Y_OFFSET;
+
+        xPoints[2] = xLocation + X_OFFSET + BOUNDS / 2 - RADIUS;
+        yPoints[2] = yLocation + Y_OFFSET + RADIUS + BOUNDS / 2;
+
+        g2.fillPolygon(xPoints, yPoints, xPoints.length);
     }
 }
