@@ -5,8 +5,8 @@ import java.awt.Graphics2D;
 
 public class Heart extends Suit implements ISuitRender {
 
-    private final int X_OFFSET = 0;
-    private final int Y_OFFSET = 0;
+    private final int X_OFFSET = 6;
+    private final int Y_OFFSET = 6;
 
     private final int BOUNDS = 20;
     private final int RADIUS = 6;
