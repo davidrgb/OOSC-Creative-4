@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class Deck {
     
@@ -31,5 +32,13 @@ public class Deck {
 
     private void shuffleDeck() {
         Collections.shuffle(cards);
+    }
+
+    public Card draw() {
+        Random rand = new Random();
+        int index = rand.nextInt(cards.size());
+        Card card = cards.get(index);
+        cards.remove(index);
+        return card;
     }
 }

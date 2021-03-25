@@ -9,13 +9,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import model.Game;
+
 public class GamePanel {
     
     private JFrame window;
 
     private GameCanvas canvas;
 
-    //private Game game;
+    private Game game;
 
     private JButton newGameButton;
 
@@ -26,7 +28,7 @@ public class GamePanel {
     public void init() {
         Container container = window.getContentPane();
 
-        //Create game object
+        game = new Game(); 
 
         canvas = new GameCanvas(this);
         container.add(BorderLayout.CENTER, canvas);
