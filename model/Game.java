@@ -2,6 +2,9 @@ package model;
 
 import java.util.Random;
 
+import model.groups.Foundation;
+import model.groups.Stack;
+
 public class Game {
     
     public enum STATE {
@@ -63,9 +66,9 @@ public class Game {
 
         System.out.println(deck.size());
 
-        Stack foundationHearts = new Stack();
-        Stack foundationDiamonds = new Stack();
-        Stack foundationSpades = new Stack();
-        Stack foundationClubs = new Stack();
+        Foundation foundationHearts = new Foundation();
+        Foundation foundationDiamonds = new Foundation();
+        Foundation foundationSpades = new Foundation();
+        Foundation foundationClubs = new Foundation();
     }
 }

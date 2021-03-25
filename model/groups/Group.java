@@ -1,8 +1,10 @@
-package model;
+package model.groups;
 
 import java.awt.Graphics2D;
 
 import java.util.ArrayList;
+
+import model.Card;
 
 public abstract class Group {
 

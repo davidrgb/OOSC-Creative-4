@@ -1,4 +1,4 @@
-package model;
+package model.groups;
 
 public class Stack extends Group {
     

@@ -51,7 +51,9 @@ public class GamePanel {
         return canvas;
     }
 
-    //get game
+    public Game getGame() {
+        return game;
+    }
 
     public JButton getNewGameButton() {
         return newGameButton;
