@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Graphics2D;
+
 import model.suits.Club;
 import model.suits.Diamond;
 import model.suits.Heart;
@@ -38,6 +40,10 @@ public abstract class Card {
 
     public int getValue() {
         return value;
+    }
+
+    public void render(Graphics2D g2) {
+        
     }
 
     @Override

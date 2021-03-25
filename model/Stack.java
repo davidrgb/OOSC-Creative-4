@@ -1,24 +1,9 @@
 package model;
 
-import java.util.ArrayList;
-
-public class Stack {
+public class Stack extends Group {
     
-    ArrayList<Card> cards;
-
     public Stack() {
-        cards = new ArrayList<>();
+        super();
     }
-
-    public void add(Card card) {
-        cards.add(card);
-    }
-
-    public int size() {
-        return cards.size();
-    }
-
-    public String contents() {
-        return cards.size() + " " + cards;
-    }
+    
 }
