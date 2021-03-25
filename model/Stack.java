@@ -17,4 +17,8 @@ public class Stack {
     public int size() {
         return cards.size();
     }
+
+    public String contents() {
+        return cards.size() + " " + cards;
+    }
 }

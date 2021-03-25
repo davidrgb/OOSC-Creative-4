@@ -41,4 +41,8 @@ public class Deck {
         cards.remove(index);
         return card;
     }
+
+    public int size() {
+        return cards.size();
+    }
 }

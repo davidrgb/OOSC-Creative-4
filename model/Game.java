@@ -53,13 +53,14 @@ public class Game {
             }
         }
 
-        System.out.println(stackA.size());
-        System.out.println(stackB.size());
-        System.out.println(stackC.size());
-        System.out.println(stackD.size());
-        System.out.println(stackE.size());
-        System.out.println(stackF.size());
-        System.out.println(stackG.size());
+        System.out.println(stackA.contents());
+        System.out.println(stackB.contents());
+        System.out.println(stackC.contents());
+        System.out.println(stackD.contents());
+        System.out.println(stackE.contents());
+        System.out.println(stackF.contents());
+        System.out.println(stackG.contents());
 
+        System.out.println(deck.size());
     }
 }
