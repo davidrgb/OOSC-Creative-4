@@ -8,6 +8,8 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import model.suits.Heart; // Remove later after testing
+
 public class GameCanvas extends JPanel {
 
     private GamePanel panel;
@@ -32,6 +34,9 @@ public class GameCanvas extends JPanel {
 
         g2.setColor(Color.WHITE);
         g2.setFont(new Font("Courier New", Font.BOLD, 36));
+
+        Heart heart = new Heart(100, 100);
+        heart.render(g2);
 
         /* if (panel.getGame().getState() == Game.State.WIN) {
             xOffset = (X_RESOLUTION / 2) - (g.getFontMetrics().stringWidth("YOU WIN") / 2);

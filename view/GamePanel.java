@@ -45,7 +45,9 @@ public class GamePanel {
         return window;
     }
 
-    //get canvas
+    public GameCanvas getCanvas() {
+        return canvas;
+    }
 
     //get game
 
