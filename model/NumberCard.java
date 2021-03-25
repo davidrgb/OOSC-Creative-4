@@ -4,8 +4,8 @@ import java.awt.Graphics2D;
 
 public class NumberCard extends Card implements ICardRender {
     
-    public NumberCard(int value) {
-        super(value);
+    public NumberCard(int value, int suit) {
+        super(value, suit);
     }
 
     @Override

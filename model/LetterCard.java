@@ -6,8 +6,8 @@ public class LetterCard extends Card implements ICardRender {
 
     private String rank;
     
-    public LetterCard(int value) {
-        super(value);
+    public LetterCard(int value, int suit) {
+        super(value, suit);
 
         switch (value) {
             case 1:
