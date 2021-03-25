@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Graphics2D;
+
 import java.util.Random;
 
 import model.groups.Foundation;
@@ -13,19 +15,33 @@ public class Game {
 
     STATE state;
 
+    Stack stackA;
+    Stack stackB;
+    Stack stackC;
+    Stack stackD;
+    Stack stackE;
+    Stack stackF;
+    Stack stackG;
+
+    Foundation foundationHearts;
+    Foundation foundationDiamonds;
+    Foundation foundationSpades;
+    Foundation foundationClubs;
+
     public Game() {
         state = STATE.PLAYING;
 
         Deck deck = new Deck();
 
         // Tableau
-        Stack stackA = new Stack();
-        Stack stackB = new Stack();
-        Stack stackC = new Stack();
-        Stack stackD = new Stack();
-        Stack stackE = new Stack();
-        Stack stackF = new Stack();
-        Stack stackG = new Stack();
+        final int tableauOffset = 540;
+        stackA = new Stack(tableauOffset);
+        stackB = new Stack(tableauOffset + 90 * 1);
+        stackC = new Stack(tableauOffset + 90 * 2);
+        stackD = new Stack(tableauOffset + 90 * 3);
+        stackE = new Stack(tableauOffset + 90 * 4);
+        stackF = new Stack(tableauOffset + 90 * 5);
+        stackG = new Stack(tableauOffset + 90 * 6);
 
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j <= i; j++) {
@@ -33,24 +49,31 @@ public class Game {
                 switch (i) {
                     case 0:
                         stackA.add(card);
+                        stackA.incrementCoveredCards();
                         break;
                     case 1:
                         stackB.add(card);
+                        stackB.incrementCoveredCards();
                         break;
                     case 2:
                         stackC.add(card);
+                        stackC.incrementCoveredCards();
                         break;
                     case 3: 
                         stackD.add(card);
+                        stackD.incrementCoveredCards();
                         break;
                     case 4:
                         stackE.add(card);
+                        stackE.incrementCoveredCards();
                         break;
                     case 5:
                         stackF.add(card);
+                        stackF.incrementCoveredCards();
                         break;
                     case 6:
                         stackG.add(card);
+                        stackG.incrementCoveredCards();
                         break;
                 }
             }
@@ -66,9 +89,19 @@ public class Game {
 
         System.out.println(deck.size());
 
-        Foundation foundationHearts = new Foundation();
-        Foundation foundationDiamonds = new Foundation();
-        Foundation foundationSpades = new Foundation();
-        Foundation foundationClubs = new Foundation();
+        foundationHearts = new Foundation();
+        foundationDiamonds = new Foundation();
+        foundationSpades = new Foundation();
+        foundationClubs = new Foundation();
+    }
+
+    public void render(Graphics2D g2) {
+        stackA.render(g2);
+        stackB.render(g2);
+        stackC.render(g2);
+        stackD.render(g2);
+        stackE.render(g2);
+        stackF.render(g2);
+        stackG.render(g2);
     }
 }

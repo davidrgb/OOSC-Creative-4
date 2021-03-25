@@ -17,7 +17,7 @@ public class GameCanvas extends JPanel {
 
     private GamePanel panel;
 
-    private final int X_RESOLUTION = 1000;
+    private final int X_RESOLUTION = 1300;
     private final int Y_RESOLUTION = 750;
 
     private int xOffset;
@@ -49,6 +49,8 @@ public class GameCanvas extends JPanel {
 
         Spade spade = new Spade(400, 100);
         spade.render(g2);
+
+        panel.render(g2);
 
         /* if (panel.getGame().getState() == Game.State.WIN) {
             xOffset = (X_RESOLUTION / 2) - (g.getFontMetrics().stringWidth("YOU WIN") / 2);

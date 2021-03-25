@@ -59,7 +59,7 @@ public class GamePanel {
         return newGameButton;
     }
 
-    public void render(Graphics2D g) {
-        //
+    public void render(Graphics2D g2) {
+        game.render(g2);
     }
 }

@@ -42,8 +42,22 @@ public abstract class Card {
         return value;
     }
 
+    public int getxLocation() {
+        return xLocation;
+    }
+
+    public int getyLocation() {
+        return yLocation;
+    }
+
     public void render(Graphics2D g2) {
-        
+        suit.render(g2);
+    }
+
+    public void updateLocation(int xLocation, int yLocation) {
+        this.xLocation = xLocation;
+        this.yLocation = yLocation;
+        suit.updateLocation(xLocation, yLocation);
     }
 
     @Override

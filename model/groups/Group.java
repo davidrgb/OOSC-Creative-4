@@ -29,4 +29,8 @@ public abstract class Group {
     public void render(Graphics2D g2) {
         cards.get(cards.size() - 1).render(g2);
     }
+
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
 }
