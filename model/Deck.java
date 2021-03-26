@@ -2,6 +2,7 @@ package model;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,8 +13,8 @@ public class Deck {
     private final int X_OFFSET = 10;
     private final int Y_OFFSET = 40;
 
-    private static final int CARD_WIDTH = 80;
-    private static final int CARD_HEIGHT = 120;
+    private final int CARD_WIDTH = 80;
+    private final int CARD_HEIGHT = 120;
     private final int INNER_OFFSET = 10;
     
     private ArrayList<Card> cards = new ArrayList<>();
@@ -48,6 +49,24 @@ public class Deck {
         return card;
     }
 
+    public Card drawToWaste() {
+        Card card = cards.get(0);
+        cards.remove(0);
+        return card;
+    }
+
+    public void add(Card card) {
+        cards.add(card);
+    }
+
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(ArrayList<Card> cards) {
+        this.cards = cards;
+    }
+
     public int size() {
         return cards.size();
     }
@@ -61,5 +80,9 @@ public class Deck {
             g2.setColor(Color.black);
             g2.drawRect(cardXLocation, cardYLocation, CARD_WIDTH, CARD_HEIGHT); 
         } 
+    }
+
+    public Rectangle getBoundingBox() {
+        return new Rectangle(X_OFFSET + INNER_OFFSET, Y_OFFSET, CARD_WIDTH, CARD_HEIGHT);
     }
 }

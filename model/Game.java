@@ -125,4 +125,56 @@ public class Game {
         stackG.render(g2);
 
     }
+
+    public Deck getDeck() {
+        return deck;
+    }
+
+    public Waste getWaste() {
+        return waste;
+    }
+
+    public Foundation getFoundationHearts() {
+        return foundationHearts;
+    }
+
+    public Foundation getFoundationDiamonds() {
+        return foundationDiamonds;
+    }
+
+    public Foundation getFoundationClubs() {
+        return foundationClubs;
+    }
+
+    public Foundation getFoundationSpades() {
+        return foundationSpades;
+    }
+
+    public Stack getStackA() {
+        return stackA;
+    }
+
+    public Stack getStackB() {
+        return stackB;
+    }
+
+    public Stack getStackC() {
+        return stackC;
+    }
+
+    public Stack getStackD() {
+        return stackD;
+    }
+
+    public Stack getStackE() {
+        return stackE;
+    }
+
+    public Stack getStackF() {
+        return stackF;
+    }
+
+    public Stack getStackG() {
+        return stackG;
+    }
 }

@@ -3,6 +3,8 @@ package model.groups;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import java.util.ArrayList;
+
 public class Waste extends Group {
     
     private int xOffset;
@@ -30,5 +32,9 @@ public class Waste extends Group {
             g2.drawRect(cardXLocation, cardYLocation, CARD_WIDTH, CARD_HEIGHT); 
             cards.get(cards.size() - 1).render(g2);
         }
+    }
+
+    public void emptyWaste() {
+        cards = new ArrayList<>();
     }
 }

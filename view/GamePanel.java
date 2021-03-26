@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import controller.EventListener;
 import model.Game;
 
 public class GamePanel {
@@ -33,10 +34,17 @@ public class GamePanel {
         canvas = new GameCanvas(this);
         container.add(BorderLayout.CENTER, canvas);
 
+        EventListener listener = new EventListener(this);
+        canvas.addMouseListener(listener);
+        canvas.requestFocusInWindow();
+        canvas.setFocusable(true);
+
         JPanel controlPanel = new JPanel();
         controlPanel.setLayout(new GridLayout(1, 1));
 
         newGameButton = new JButton("New Game");
+
+        newGameButton.setFocusable(false);
 
         newGameButton.addActionListener( e -> {
             window.getContentPane().removeAll();
