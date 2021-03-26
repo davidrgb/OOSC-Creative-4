@@ -34,7 +34,7 @@ public class Game {
         Deck deck = new Deck();
 
         // Tableau
-        final int tableauOffset = 540;
+        final int tableauOffset = 540 + 20;
         stackA = new Stack(tableauOffset);
         stackB = new Stack(tableauOffset + 90 * 1);
         stackC = new Stack(tableauOffset + 90 * 2);
@@ -89,13 +89,19 @@ public class Game {
 
         System.out.println(deck.size());
 
-        foundationHearts = new Foundation();
-        foundationDiamonds = new Foundation();
-        foundationSpades = new Foundation();
-        foundationClubs = new Foundation();
+        foundationHearts = new Foundation(180, 1);
+        foundationDiamonds = new Foundation(180 + 90 * 1, 2);
+        foundationSpades = new Foundation(180 + 90 * 2, 3);
+        foundationClubs = new Foundation(180 + 90 * 3, 4);
     }
 
     public void render(Graphics2D g2) {
+        
+        foundationHearts.render(g2);
+        foundationDiamonds.render(g2);
+        foundationSpades.render(g2);
+        foundationClubs.render(g2);
+        
         stackA.render(g2);
         stackB.render(g2);
         stackC.render(g2);

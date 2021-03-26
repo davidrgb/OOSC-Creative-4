@@ -38,18 +38,6 @@ public class GameCanvas extends JPanel {
         g2.setColor(Color.WHITE);
         g2.setFont(new Font("Courier New", Font.BOLD, 36));
 
-        Heart heart = new Heart(100, 100);
-        heart.render(g2);
-
-        Diamond diamond = new Diamond(200, 100);
-        diamond.render(g2);
-
-        Club club = new Club(300, 100);
-        club.render(g2);
-
-        Spade spade = new Spade(400, 100);
-        spade.render(g2);
-
         panel.render(g2);
 
         /* if (panel.getGame().getState() == Game.State.WIN) {
