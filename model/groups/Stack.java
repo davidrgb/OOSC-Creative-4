@@ -2,9 +2,6 @@ package model.groups;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.util.ArrayList;
-
-import model.Card;
 
 public class Stack extends Group {
 
