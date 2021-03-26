@@ -8,11 +8,6 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-import model.suits.Club;
-import model.suits.Diamond; // Remove after testing
-import model.suits.Heart; // Remove later after testing
-import model.suits.Spade;
-
 public class GameCanvas extends JPanel {
 
     private GamePanel panel;
