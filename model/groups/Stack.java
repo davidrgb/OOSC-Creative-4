@@ -2,6 +2,7 @@ package model.groups;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 public class Stack extends Group {
 
@@ -71,5 +72,10 @@ public class Stack extends Group {
                 g2.drawRect(cardXLocation, cardYLocation + STACKED_CARD_HEIGHT * i, CARD_WIDTH, CARD_HEIGHT);  
             }
         }*/
+    }
+
+    @Override
+    public Rectangle getBoundingBox() {
+        return new Rectangle(xOffset + INNER_OFFSET, Y_OFFSET, CARD_WIDTH, CARD_HEIGHT);
     }  
 }

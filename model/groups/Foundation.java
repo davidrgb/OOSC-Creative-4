@@ -2,6 +2,7 @@ package model.groups;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 import model.suits.Club;
 import model.suits.Diamond;
@@ -60,4 +61,8 @@ public class Foundation extends Group {
         }
     }
 
+    @Override
+    public Rectangle getBoundingBox() {
+        return new Rectangle(xOffset + INNER_OFFSET, Y_OFFSET, CARD_WIDTH, CARD_HEIGHT);
+    }
 }

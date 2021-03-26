@@ -1,6 +1,7 @@
 package model.groups;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 import java.util.ArrayList;
 
@@ -33,4 +34,6 @@ public abstract class Group {
     public ArrayList<Card> getCards() {
         return cards;
     }
+
+    public abstract Rectangle getBoundingBox();
 }
