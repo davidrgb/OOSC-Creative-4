@@ -27,19 +27,20 @@ public class EventListener implements MouseListener {
         Deck deck = panel.getGame().getDeck();
         Waste waste = panel.getGame().getWaste();
 
-        boundingBoxes.add(deck.getBoundingBox());
+        if (deck.getBoundingBox().contains(e.getX(), e.getY())) {
+            if (deck.getCards().size() == 0) {
+                deck.setCards(waste.getCards());
+                waste.emptyWaste();
+            }
+
+            waste.add(deck.drawToWaste());
+            panel.getCanvas().repaint();
+            return;
+        }
+
+        //boundingBoxes.add(deck.getBoundingBox());
         for (int i = 0; i < boundingBoxes.size(); i++) {
             Rectangle box = boundingBoxes.get(i);
-            if (box.contains(e.getX(), e.getY())) {
-                if (deck.getCards().size() == 0) {
-                    deck.setCards(waste.getCards());
-                    waste.emptyWaste();
-                }
-
-                waste.add(deck.drawToWaste());
-                panel.getCanvas().repaint();
-                return;
-            }
         }
     }
 
