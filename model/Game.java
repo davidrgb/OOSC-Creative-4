@@ -6,6 +6,7 @@ import java.util.Random;
 
 import model.groups.Foundation;
 import model.groups.Stack;
+import model.groups.Waste;
 
 public class Game {
     
@@ -28,20 +29,22 @@ public class Game {
     Foundation foundationSpades;
     Foundation foundationClubs;
 
+    Waste waste;
+
     public Game() {
         state = STATE.PLAYING;
 
         Deck deck = new Deck();
 
         // Tableau
-        final int tableauOffset = 540 + 20;
-        stackA = new Stack(tableauOffset);
-        stackB = new Stack(tableauOffset + 90 * 1);
-        stackC = new Stack(tableauOffset + 90 * 2);
-        stackD = new Stack(tableauOffset + 90 * 3);
-        stackE = new Stack(tableauOffset + 90 * 4);
-        stackF = new Stack(tableauOffset + 90 * 5);
-        stackG = new Stack(tableauOffset + 90 * 6);
+        final int TABLEAU_OFFSET = 540 + 30;
+        stackA = new Stack(TABLEAU_OFFSET);
+        stackB = new Stack(TABLEAU_OFFSET + 90 * 1);
+        stackC = new Stack(TABLEAU_OFFSET + 90 * 2);
+        stackD = new Stack(TABLEAU_OFFSET + 90 * 3);
+        stackE = new Stack(TABLEAU_OFFSET + 90 * 4);
+        stackF = new Stack(TABLEAU_OFFSET + 90 * 5);
+        stackG = new Stack(TABLEAU_OFFSET + 90 * 6);
 
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j <= i; j++) {
@@ -89,19 +92,30 @@ public class Game {
 
         System.out.println(deck.size());
 
-        foundationHearts = new Foundation(180, 1);
-        foundationDiamonds = new Foundation(180 + 90 * 1, 2);
-        foundationSpades = new Foundation(180 + 90 * 2, 3);
-        foundationClubs = new Foundation(180 + 90 * 3, 4);
+        final int FOUNDATION_OFFSET = 180 + 15;
+        foundationHearts = new Foundation(FOUNDATION_OFFSET, 1);
+        foundationDiamonds = new Foundation(FOUNDATION_OFFSET + 90 * 1, 2);
+        foundationSpades = new Foundation(FOUNDATION_OFFSET + 90 * 2, 3);
+        foundationClubs = new Foundation(FOUNDATION_OFFSET + 90 * 3, 4);
+
+        foundationClubs.add(deck.draw());
+
+        final int WASTE_OFFSET = 90;
+
+        waste = new Waste(WASTE_OFFSET);
+
+        waste.add(deck.draw());
     }
 
     public void render(Graphics2D g2) {
+
+        waste.render(g2);
         
         foundationHearts.render(g2);
         foundationDiamonds.render(g2);
         foundationSpades.render(g2);
         foundationClubs.render(g2);
-        
+
         stackA.render(g2);
         stackB.render(g2);
         stackC.render(g2);
@@ -109,5 +123,6 @@ public class Game {
         stackE.render(g2);
         stackF.render(g2);
         stackG.render(g2);
+
     }
 }
