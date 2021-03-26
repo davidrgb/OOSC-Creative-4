@@ -107,7 +107,7 @@ public class Stack extends Group {
 
     public boolean transfer(ArrayList<Card> cards) {
         ISuitRender cardSuit = cards.get(0).getSuit();
-        int topValue = this.cards.get(cards.size() - 1).getValue();
+        int topValue = this.cards.get(this.cards.size() - 1).getValue();
         if (cardSuit != this.cards.get(cards.size() - 1) && cards.get(0).getValue() == topValue - 1) {
             for (int i = 0; i < cards.size(); i++) {
                 int cardXLocation = xOffset + INNER_OFFSET;
