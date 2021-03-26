@@ -28,8 +28,6 @@ public class Stack extends Group {
     }
 
     public void render(Graphics2D g2) {
-        //ArrayList<Card> cards = getCards();
-
         for (int i = 0; i < cards.size(); i++) {
             int cardXLocation = xOffset + ((CARD_WIDTH + INNER_OFFSET));
             int cardYLocation = Y_OFFSET;
@@ -49,6 +47,15 @@ public class Stack extends Group {
                 }
                 cards.get(i).render(g2);
             }
+        }
+
+        if (cards.size() == 0) {
+            int cardXLocation = xOffset + ((CARD_WIDTH + INNER_OFFSET));
+            int cardYLocation = Y_OFFSET;
+            g2.setColor(Color.red);
+            g2.fillRect(cardXLocation, cardYLocation, CARD_WIDTH, CARD_HEIGHT);
+            g2.setColor(Color.black);
+            g2.drawRect(cardXLocation, cardYLocation, CARD_WIDTH, CARD_HEIGHT); 
         }
 
         /*for (int i = 0; i < cards.size(); i++) {
