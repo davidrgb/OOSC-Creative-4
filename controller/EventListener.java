@@ -20,6 +20,8 @@ public class EventListener implements MouseListener {
     ArrayList<Rectangle> boundingBoxes = new ArrayList<>();
 
     Card memoryCard;
+    ArrayList<Card> memoryCards = new ArrayList<>();
+    int memoryCardIndex;
     Group cardGroup;
 
     public EventListener(GamePanel panel) {
@@ -72,6 +74,8 @@ public class EventListener implements MouseListener {
             }
 
             memoryCard = null;
+            memoryCards = new ArrayList<>();
+            memoryCardIndex = -1;
             cardGroup = null;
 
             waste.add(deck.drawToWaste());
@@ -79,11 +83,16 @@ public class EventListener implements MouseListener {
             return;
         }
 
-        if (memoryCard == null) {
+        if (memoryCards.size() == 0) {
             for (var g: groups) {
                 if (g.getBoundingBox().contains(mouseX, mouseY) && g.getCards().size() > 0) {
-                    memoryCard = g.getSelectedCard(mouseY);
+                    //memoryCard = g.getSelectedCard(mouseY);
+                    memoryCardIndex = g.getSelectedCard(mouseY);
+                    for (int i = memoryCardIndex; i < g.getCards().size(); i++) {
+                        memoryCards.add(g.getCards().get(i));
+                    }
                     cardGroup = g;
+                    panel.getCanvas().repaint();
                     System.out.println(memoryCard + " " + cardGroup);
                     return;
                 }
@@ -91,8 +100,20 @@ public class EventListener implements MouseListener {
         }
         else {
             //move op
+            for (var g: groups) {
+                if (g.getBoundingBox().contains(mouseX, mouseY)) {
+                    if (g.transfer(memoryCards)) {
+                        for (int i = memoryCardIndex; i < cardGroup.size(); i++) {
+                            cardGroup.getCards().remove(memoryCardIndex);
+                        }
+                        panel.getCanvas().repaint();
+                    }
+                }
+            }
             
             memoryCard = null;
+            memoryCards = new ArrayList<>();
+            memoryCardIndex = -1;
             cardGroup = null;
         }
         //boundingBoxes.add(deck.getBoundingBox());

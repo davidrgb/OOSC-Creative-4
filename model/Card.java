@@ -18,8 +18,8 @@ public abstract class Card {
     private int yLocation;
 
     public Card(int value, int suit) {
-        xLocation = -1;
-        yLocation = -1;
+        xLocation = 0;
+        yLocation = 0;
 
         this.value = value;
         switch (suit) {
@@ -58,6 +58,10 @@ public abstract class Card {
         this.xLocation = xLocation;
         this.yLocation = yLocation;
         suit.updateLocation(xLocation, yLocation);
+    }
+
+    public ISuitRender getSuit() {
+        return suit;
     }
 
     @Override

@@ -6,6 +6,8 @@ import java.awt.Rectangle;
 
 import java.util.ArrayList;
 
+import model.Card;
+
 public class Waste extends Group {
     
     private int xOffset;
@@ -42,5 +44,9 @@ public class Waste extends Group {
     @Override
     public Rectangle getBoundingBox() {
         return new Rectangle(xOffset + INNER_OFFSET, Y_OFFSET, CARD_WIDTH, CARD_HEIGHT);
+    }
+
+    public boolean transfer(ArrayList<Card> cards) {
+        return false;
     }
 }

@@ -3,7 +3,9 @@ package model.groups;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.util.ArrayList;
 
+import model.Card;
 import model.suits.Club;
 import model.suits.Diamond;
 import model.suits.Heart;
@@ -64,5 +66,15 @@ public class Foundation extends Group {
     @Override
     public Rectangle getBoundingBox() {
         return new Rectangle(xOffset + INNER_OFFSET, Y_OFFSET, CARD_WIDTH, CARD_HEIGHT);
+    }
+
+    public boolean transfer(ArrayList<Card> cards) {
+        ISuitRender cardSuit = cards.get(0).getSuit();
+        int topValue = this.cards.get(cards.size() - 1).getValue();
+        if (cardSuit == this.suit && cards.get(0).getValue() == topValue + 1 && cards.size() == 1) {
+            add(cards.get(0));
+            return true;
+        }
+        return false;
     }
 }
