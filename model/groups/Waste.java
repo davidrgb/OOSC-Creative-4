@@ -19,7 +19,7 @@ public class Waste extends Group {
 
     public void render(Graphics2D g2) {
 
-        int cardXLocation = xOffset + ((CARD_WIDTH + INNER_OFFSET));
+        int cardXLocation = xOffset + INNER_OFFSET;
         int cardYLocation = Y_OFFSET;
 
         if (cards.size() > 0) {

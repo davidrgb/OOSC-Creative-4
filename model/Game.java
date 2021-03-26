@@ -16,6 +16,15 @@ public class Game {
 
     STATE state;
 
+    Deck deck;
+
+    Waste waste;
+
+    Foundation foundationHearts;
+    Foundation foundationDiamonds;
+    Foundation foundationSpades;
+    Foundation foundationClubs;
+
     Stack stackA;
     Stack stackB;
     Stack stackC;
@@ -24,17 +33,10 @@ public class Game {
     Stack stackF;
     Stack stackG;
 
-    Foundation foundationHearts;
-    Foundation foundationDiamonds;
-    Foundation foundationSpades;
-    Foundation foundationClubs;
-
-    Waste waste;
-
     public Game() {
         state = STATE.PLAYING;
 
-        Deck deck = new Deck();
+        deck = new Deck();
 
         // Tableau
         final int TABLEAU_OFFSET = 540 + 30;
@@ -100,7 +102,7 @@ public class Game {
 
         foundationClubs.add(deck.draw());
 
-        final int WASTE_OFFSET = 90;
+        final int WASTE_OFFSET = 100;
 
         waste = new Waste(WASTE_OFFSET);
 
@@ -108,6 +110,8 @@ public class Game {
     }
 
     public void render(Graphics2D g2) {
+
+        deck.render(g2);
 
         waste.render(g2);
         
