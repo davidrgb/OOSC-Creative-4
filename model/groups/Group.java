@@ -19,6 +19,10 @@ public abstract class Group {
         cards.add(card);
     }
 
+    public void remove(int index) {
+        cards.remove(index);
+    }
+
     public int size() {
         return cards.size();
     }

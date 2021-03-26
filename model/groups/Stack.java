@@ -31,6 +31,10 @@ public class Stack extends Group {
         coveredCards++;
     }
 
+    public void decreaseCoveredCards(int decrease) {
+        coveredCards -= decrease;
+    }
+
     public void render(Graphics2D g2) {
         for (int i = 0; i < cards.size(); i++) {
             int cardXLocation = xOffset + INNER_OFFSET;
@@ -90,6 +94,13 @@ public class Stack extends Group {
     }*/
 
     @Override
+    public void remove(int index) {
+        super.remove(index);
+        if (cards.size() == coveredCards) {
+            coveredCards--;
+        }
+    }
+    @Override
     public int getSelectedCard(int mouseY) {
         selectedCardIndex = (mouseY - Y_OFFSET) / STACKED_CARD_HEIGHT + coveredCards - 1;
         if (selectedCardIndex >= cards.size()) {
@@ -107,8 +118,20 @@ public class Stack extends Group {
 
     public boolean transfer(ArrayList<Card> cards) {
         ISuitRender cardSuit = cards.get(0).getSuit();
-        int topValue = this.cards.get(this.cards.size() - 1).getValue();
-        if (cardSuit != this.cards.get(cards.size() - 1) && cards.get(0).getValue() == topValue - 1) {
+        if (this.cards.size() > 0) {
+            int topValue = this.cards.get(this.cards.size() - 1).getValue();
+            if (cardSuit != this.cards.get(cards.size() - 1) && cards.get(0).getValue() == topValue - 1) {
+                for (int i = 0; i < cards.size(); i++) {
+                    int cardXLocation = xOffset + INNER_OFFSET;
+                    int cardYLocation = Y_OFFSET + (this.cards.size() - coveredCards) * STACKED_CARD_HEIGHT;
+
+                    cards.get(i).updateLocation(cardXLocation, cardYLocation);
+                    this.cards.add(cards.get(i));
+                }
+                return true;
+            }
+        }
+        else if (cards.get(0).getValue() == 13) {
             for (int i = 0; i < cards.size(); i++) {
                 int cardXLocation = xOffset + INNER_OFFSET;
                 int cardYLocation = Y_OFFSET + (this.cards.size() - coveredCards) * STACKED_CARD_HEIGHT;

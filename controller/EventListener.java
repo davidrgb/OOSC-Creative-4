@@ -104,7 +104,7 @@ public class EventListener implements MouseListener {
                 if (g.getBoundingBox().contains(mouseX, mouseY)) {
                     if (g.transfer(memoryCards)) {
                         for (int i = memoryCardIndex; i < cardGroup.size(); i++) {
-                            cardGroup.getCards().remove(memoryCardIndex);
+                            cardGroup.remove(memoryCardIndex);
                         }
                         panel.getCanvas().repaint();
                     }
