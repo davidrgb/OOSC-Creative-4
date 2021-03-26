@@ -55,10 +55,6 @@ public class Deck {
         return card;
     }
 
-    public void add(Card card) {
-        cards.add(card);
-    }
-
     public ArrayList<Card> getCards() {
         return cards;
     }

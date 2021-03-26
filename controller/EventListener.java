@@ -23,23 +23,19 @@ public class EventListener implements MouseListener {
     @Override
     public void mousePressed(MouseEvent e) {  
         boundingBoxes.clear();
-        boundingBoxes.add(panel.getGame().getDeck().getBoundingBox());
+
+        Deck deck = panel.getGame().getDeck();
+        Waste waste = panel.getGame().getWaste();
+
+        boundingBoxes.add(deck.getBoundingBox());
         for (int i = 0; i < boundingBoxes.size(); i++) {
             Rectangle box = boundingBoxes.get(i);
             if (box.contains(e.getX(), e.getY())) {
-                Deck deck = panel.getGame().getDeck();
-                Waste waste = panel.getGame().getWaste();
-                if (panel.getGame().getDeck().getCards().size() == 0) {
-                    //panel.getGame().getDeck().setCards(panel.getGame().getWaste().getCards());
-                    //panel.getGame().getWaste().emptyWaste();
+                if (deck.getCards().size() == 0) {
                     deck.setCards(waste.getCards());
                     waste.emptyWaste();
-                    //for (int j = 0; j < waste.getCards().size(); j++) {
-                        //Card card = waste.getCards().get(j);
-                        //deck.add(waste.getCards().get(j));
-                        //waste.getCards().remove(j);
-                    //}
                 }
+
                 waste.add(deck.drawToWaste());
                 panel.getCanvas().repaint();
                 return;
