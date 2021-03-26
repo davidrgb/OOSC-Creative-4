@@ -25,23 +25,23 @@ public class Foundation extends Group {
         this.xOffset = xOffset;
         switch (suit) {
             case 1:
-                this.suit = new Heart(xOffset + CARD_WIDTH - 15, Y_OFFSET + CARD_HEIGHT / 2 - 15);
+                this.suit = new Heart(xOffset - 15, Y_OFFSET + CARD_HEIGHT / 2 - 15);
                 break;
             case 2:
-                this.suit = new Diamond(xOffset + CARD_WIDTH - 15, Y_OFFSET + CARD_HEIGHT / 2 - 15);
+                this.suit = new Diamond(xOffset - 15, Y_OFFSET + CARD_HEIGHT / 2 - 15);
                 break;
             case 3:
-                this.suit = new Club(xOffset + CARD_WIDTH - 15, Y_OFFSET + CARD_HEIGHT / 2 - 15);
+                this.suit = new Club(xOffset - 15, Y_OFFSET + CARD_HEIGHT / 2 - 15);
                 break;
             case 4:
-                this.suit = new Spade(xOffset + CARD_WIDTH - 15, Y_OFFSET + CARD_HEIGHT / 2 - 15);
+                this.suit = new Spade(xOffset - 15, Y_OFFSET + CARD_HEIGHT / 2 - 15);
                 break;
         }
     }
 
     public void render(Graphics2D g2) {
 
-        int cardXLocation = xOffset + ((CARD_WIDTH + INNER_OFFSET));
+        int cardXLocation = xOffset + INNER_OFFSET;
         int cardYLocation = Y_OFFSET;
 
         if (cards.size() == 0) {

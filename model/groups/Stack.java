@@ -26,7 +26,7 @@ public class Stack extends Group {
 
     public void render(Graphics2D g2) {
         for (int i = 0; i < cards.size(); i++) {
-            int cardXLocation = xOffset + ((CARD_WIDTH + INNER_OFFSET));
+            int cardXLocation = xOffset + INNER_OFFSET;
             int cardYLocation = Y_OFFSET;
 
             g2.setColor(Color.white);
@@ -47,7 +47,7 @@ public class Stack extends Group {
         }
 
         if (cards.size() == 0) {
-            int cardXLocation = xOffset + ((CARD_WIDTH + INNER_OFFSET));
+            int cardXLocation = xOffset + INNER_OFFSET;
             int cardYLocation = Y_OFFSET;
             g2.setColor(Color.red);
             g2.fillRect(cardXLocation, cardYLocation, CARD_WIDTH, CARD_HEIGHT);

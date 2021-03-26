@@ -38,8 +38,7 @@ public class Game {
 
         deck = new Deck();
 
-        // Tableau
-        final int TABLEAU_OFFSET = 540 + 30;
+        final int TABLEAU_OFFSET = 560 + 30;
         stackA = new Stack(TABLEAU_OFFSET);
         stackB = new Stack(TABLEAU_OFFSET + 90 * 1);
         stackC = new Stack(TABLEAU_OFFSET + 90 * 2);
@@ -94,19 +93,16 @@ public class Game {
 
         System.out.println(deck.size());
 
-        final int FOUNDATION_OFFSET = 180 + 15;
+        final int FOUNDATION_OFFSET = 180 + 30;
         foundationHearts = new Foundation(FOUNDATION_OFFSET, 1);
         foundationDiamonds = new Foundation(FOUNDATION_OFFSET + 90 * 1, 2);
         foundationSpades = new Foundation(FOUNDATION_OFFSET + 90 * 2, 3);
         foundationClubs = new Foundation(FOUNDATION_OFFSET + 90 * 3, 4);
 
-        foundationClubs.add(deck.draw());
-
         final int WASTE_OFFSET = 100;
 
         waste = new Waste(WASTE_OFFSET);
 
-        waste.add(deck.draw());
     }
 
     public void render(Graphics2D g2) {

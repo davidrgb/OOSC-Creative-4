@@ -12,7 +12,7 @@ public class GameCanvas extends JPanel {
 
     private GamePanel panel;
 
-    private final int X_RESOLUTION = 1300;
+    private final int X_RESOLUTION = 1250;
     private final int Y_RESOLUTION = 750;
 
     private int xOffset;
