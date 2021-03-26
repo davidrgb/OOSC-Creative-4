@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import model.Card;
+
 public class Stack extends Group {
 
     private int xOffset;
@@ -15,6 +17,8 @@ public class Stack extends Group {
     private final int INNER_OFFSET = 10;
 
     private int coveredCards = -1;
+
+    private int selectedCardIndex;
     
     public Stack(int xOffset) {
         super();
@@ -75,7 +79,18 @@ public class Stack extends Group {
     }
 
     @Override
+    public Card getSelectedCard(int mouseY) {
+        selectedCardIndex = (mouseY - Y_OFFSET) / STACKED_CARD_HEIGHT + coveredCards - 1;
+        if (selectedCardIndex >= cards.size()) {
+            selectedCardIndex = cards.size() - 1;
+        }
+        return cards.get(selectedCardIndex);
+    }
+
+    @Override
     public Rectangle getBoundingBox() {
-        return new Rectangle(xOffset + INNER_OFFSET, Y_OFFSET, CARD_WIDTH, CARD_HEIGHT);
+        int boxHeight = ((cards.size() - coveredCards) - 1) * STACKED_CARD_HEIGHT + CARD_HEIGHT;
+        if (boxHeight < 1) boxHeight = 1;
+        return new Rectangle(xOffset + INNER_OFFSET, Y_OFFSET, CARD_WIDTH, boxHeight);
     }  
 }

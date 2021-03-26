@@ -35,5 +35,9 @@ public abstract class Group {
         return cards;
     }
 
+    public Card getSelectedCard(int mouseY) {
+        return cards.get(cards.size() - 1);
+    }
+
     public abstract Rectangle getBoundingBox();
 }

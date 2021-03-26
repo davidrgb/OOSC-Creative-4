@@ -71,24 +71,21 @@ public class EventListener implements MouseListener {
                 waste.emptyWaste();
             }
 
+            memoryCard = null;
+            cardGroup = null;
+
             waste.add(deck.drawToWaste());
             panel.getCanvas().repaint();
             return;
         }
 
         if (memoryCard == null) {
-            /*if (waste.getBoundingBox().contains(mouseX, mouseY)) {
-                memoryCard = waste.getCards().get(waste.getCards().size() - 1);
-                cardGroup = waste;
-            }
-            else if (foundationHearts.getBoundingBox().contains(mouseX, mouseY)) {
-                memoryCard = foundationHearts.getCards().get(foundationHearts.getCards().size() - 1);
-                cardGroup = foundationHearts;
-            }*/
             for (var g: groups) {
                 if (g.getBoundingBox().contains(mouseX, mouseY) && g.getCards().size() > 0) {
-                    memoryCard = g.getCards().get(g.getCards().size() - 1);
+                    memoryCard = g.getSelectedCard(mouseY);
                     cardGroup = g;
+                    System.out.println(memoryCard + " " + cardGroup);
+                    return;
                 }
             }
         }
@@ -98,9 +95,6 @@ public class EventListener implements MouseListener {
             memoryCard = null;
             cardGroup = null;
         }
-
-        System.out.println(memoryCard + " " + cardGroup);
-
         //boundingBoxes.add(deck.getBoundingBox());
     }
 
