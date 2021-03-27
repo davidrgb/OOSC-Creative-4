@@ -66,33 +66,6 @@ public class Stack extends Group {
             g2.drawRect(cardXLocation, cardYLocation, CARD_WIDTH, CARD_HEIGHT); 
         }
 
-        /*for (int i = 0; i < cards.size(); i++) {
-            int cardXLocation = xOffset + ((CARD_WIDTH + INNER_OFFSET));
-            int cardYLocation = Y_OFFSET;
-
-            g2.setColor(Color.white);
-            if (i < cards.size() - 1) {
-                g2.fillRect(cardXLocation, cardYLocation + STACKED_CARD_HEIGHT * i, CARD_WIDTH, STACKED_CARD_HEIGHT);
-                g2.setColor(Color.black);
-                g2.drawRect(cardXLocation, cardYLocation + STACKED_CARD_HEIGHT * i, CARD_WIDTH, STACKED_CARD_HEIGHT);   
-            }
-            else {
-                g2.fillRect(cardXLocation, cardYLocation + STACKED_CARD_HEIGHT * i, CARD_WIDTH, CARD_HEIGHT);
-                g2.setColor(Color.black);
-                g2.drawRect(cardXLocation, cardYLocation + STACKED_CARD_HEIGHT * i, CARD_WIDTH, CARD_HEIGHT);  
-            }
-        }*/
-    }
-
-    /*@Override
-    /public Card getSelectedCard(int mouseY) {
-        selectedCardIndex = (mouseY - Y_OFFSET) / STACKED_CARD_HEIGHT + coveredCards - 1;
-        if (selectedCardIndex >= cards.size()) {
-            selectedCardIndex = cards.size() - 1;
-        }
-        return cards.get(selectedCardIndex);
-    }*/
-
     @Override
     public void remove(int index) {
         super.remove(index);
