@@ -35,11 +35,6 @@ public class Stack extends Group {
         coveredCards++;
     }
 
-    public void decreaseCoveredCards(int decrease) {
-        coveredCards -= decrease;
-        if (coveredCards < 0) coveredCards = 0;
-    }
-
     public void render(Graphics2D g2) {
         for (int i = 0; i < cards.size(); i++) {
             int cardXLocation = xOffset + INNER_OFFSET;
@@ -103,6 +98,7 @@ public class Stack extends Group {
         super.remove(index);
         if (cards.size() == coveredCards) {
             coveredCards--;
+            if (coveredCards < 0) coveredCards = 0;
         }
     }
     @Override
