@@ -69,16 +69,20 @@ public class EventListener implements MouseListener {
 
         if (deck.getBoundingBox().contains(mouseX, mouseY)) {
             if (deck.getCards().size() == 0) {
-                deck.setCards(waste.getCards());
-                waste.emptyWaste();
+                if (waste.getCards().size() > 0) {
+                    deck.setCards(waste.getCards());
+                    waste.emptyWaste();
+                }
             }
 
-            memoryCard = null;
             memoryCards = new ArrayList<>();
             memoryCardIndex = -1;
             cardGroup = null;
 
-            waste.add(deck.drawToWaste());
+            if (deck.getCards().size() > 0) waste.add(deck.drawToWaste());
+            int xLocationMarker = -15;
+            int yLocationMarker = -15;
+            panel.getCanvas().setMarkerLocation(xLocationMarker, yLocationMarker);
             panel.getCanvas().repaint();
             return;
         }
@@ -86,12 +90,14 @@ public class EventListener implements MouseListener {
         if (memoryCards.size() == 0) {
             for (var g: groups) {
                 if (g.getBoundingBox().contains(mouseX, mouseY) && g.getCards().size() > 0) {
-                    //memoryCard = g.getSelectedCard(mouseY);
                     memoryCardIndex = g.getSelectedCard(mouseY);
                     for (int i = memoryCardIndex; i < g.getCards().size(); i++) {
                         memoryCards.add(g.getCards().get(i));
                     }
                     cardGroup = g;
+                    int xLocationMarker = memoryCards.get(0).getxLocation() + 32;
+                    int yLocationMarker = memoryCards.get(0).getyLocation() + 7;
+                    panel.getCanvas().setMarkerLocation(xLocationMarker, yLocationMarker);
                     panel.getCanvas().repaint();
                     System.out.println(memoryCard + " " + cardGroup);
                     return;
@@ -99,24 +105,34 @@ public class EventListener implements MouseListener {
             }
         }
         else {
-            //move op
             for (var g: groups) {
                 if (g.getBoundingBox().contains(mouseX, mouseY)) {
                     if (g.transfer(memoryCards)) {
                         for (int i = memoryCardIndex; i < cardGroup.size();) {
                             cardGroup.remove(memoryCardIndex);
                         }
+                        int xLocationMarker = -15;
+                        int yLocationMarker = -15;
+                        panel.getCanvas().setMarkerLocation(xLocationMarker, yLocationMarker);
+                        memoryCards = new ArrayList<>();
+                        memoryCardIndex = -1;
+                        cardGroup = null;
+                        panel.getGame().checkWin();
                         panel.getCanvas().repaint();
+                        return;
                     }
                 }
             }
-            
-            memoryCard = null;
+
             memoryCards = new ArrayList<>();
             memoryCardIndex = -1;
             cardGroup = null;
+            int xLocationMarker = -15;
+            int yLocationMarker = -15;
+            panel.getCanvas().setMarkerLocation(xLocationMarker, yLocationMarker);
+            panel.getCanvas().repaint();
+        
         }
-        //boundingBoxes.add(deck.getBoundingBox());
     }
 
     @Override

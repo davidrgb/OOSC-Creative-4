@@ -37,6 +37,7 @@ public class Stack extends Group {
 
     public void decreaseCoveredCards(int decrease) {
         coveredCards -= decrease;
+        if (coveredCards < 0) coveredCards = 0;
     }
 
     public void render(Graphics2D g2) {
