@@ -70,9 +70,28 @@ public class Foundation extends Group {
 
     public boolean transfer(ArrayList<Card> cards) {
         ISuitRender cardSuit = cards.get(0).getSuit();
-        int topValue = this.cards.get(cards.size() - 1).getValue();
-        if (cardSuit == this.suit && cards.get(0).getValue() == topValue + 1 && cards.size() == 1) {
+        int topValue = 0;
+        if (this.cards.size() > 0) {
+            topValue = this.cards.get(this.cards.size() - 1).getValue();
+        }
+        if (suitCheck(cardSuit) && cards.get(0).getValue() == topValue + 1 && cards.size() == 1) {
             add(cards.get(0));
+            return true;
+        }
+        return false;
+    }
+
+    public boolean suitCheck(ISuitRender suit) {
+        if (this.suit instanceof Heart && suit instanceof Heart) {
+            return true;
+        }
+        if (this.suit instanceof Diamond && suit instanceof Diamond) {
+            return true;
+        }
+        if (this.suit instanceof Club && suit instanceof Club) {
+            return true;
+        }
+        if (this.suit instanceof Spade && suit instanceof Spade) {
             return true;
         }
         return false;

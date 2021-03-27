@@ -105,6 +105,14 @@ public class Game {
 
     }
 
+    public void checkWin() {
+        boolean win = true;
+        if (foundationHearts.getCards().get(foundationHearts.getCards().size() - 1).getValue() != 13) win = false;
+        if (foundationDiamonds.getCards().get(foundationDiamonds.getCards().size() - 1).getValue() != 13) win = false;
+        if (foundationClubs.getCards().get(foundationClubs.getCards().size() - 1).getValue() != 13) win = false;
+        if (foundationSpades.getCards().get(foundationSpades.getCards().size() - 1).getValue() != 13) win = false;
+    }
+
     public void render(Graphics2D g2) {
 
         deck.render(g2);

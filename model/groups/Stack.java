@@ -106,7 +106,7 @@ public class Stack extends Group {
     }
     @Override
     public int getSelectedCard(int mouseY) {
-        selectedCardIndex = (mouseY - Y_OFFSET) / STACKED_CARD_HEIGHT + coveredCards - 1;
+        selectedCardIndex = (mouseY - Y_OFFSET) / STACKED_CARD_HEIGHT + coveredCards;
         if (selectedCardIndex >= cards.size()) {
             selectedCardIndex = cards.size() - 1;
         }
