@@ -65,6 +65,7 @@ public class Stack extends Group {
             g2.setColor(Color.black);
             g2.drawRect(cardXLocation, cardYLocation, CARD_WIDTH, CARD_HEIGHT);
         }
+    }
 
     @Override
     public void remove(int index) {
