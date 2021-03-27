@@ -2,8 +2,6 @@ package model;
 
 import java.awt.Graphics2D;
 
-import java.util.Random;
-
 import model.groups.Foundation;
 import model.groups.Stack;
 import model.groups.Waste;
