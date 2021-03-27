@@ -81,16 +81,6 @@ public class Game {
             }
         }
 
-        System.out.println(stackA.contents());
-        System.out.println(stackB.contents());
-        System.out.println(stackC.contents());
-        System.out.println(stackD.contents());
-        System.out.println(stackE.contents());
-        System.out.println(stackF.contents());
-        System.out.println(stackG.contents());
-
-        System.out.println(deck.size());
-
         final int FOUNDATION_OFFSET = 180 + 30;
         foundationHearts = new Foundation(FOUNDATION_OFFSET, 1);
         foundationDiamonds = new Foundation(FOUNDATION_OFFSET + 90 * 1, 2);

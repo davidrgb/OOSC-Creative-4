@@ -99,7 +99,6 @@ public class EventListener implements MouseListener {
                     int yLocationMarker = memoryCards.get(0).getyLocation() + 7;
                     panel.getCanvas().setMarkerLocation(xLocationMarker, yLocationMarker);
                     panel.getCanvas().repaint();
-                    System.out.println(memoryCard + " " + cardGroup);
                     return;
                 }
             }

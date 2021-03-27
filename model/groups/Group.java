@@ -27,10 +27,6 @@ public abstract class Group {
         return cards.size();
     }
 
-    public String contents() {
-        return cards.size() + " " + cards;
-    }
-
     public void render(Graphics2D g2) {
         cards.get(cards.size() - 1).render(g2);
     }
