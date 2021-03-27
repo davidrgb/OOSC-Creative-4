@@ -6,7 +6,11 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import model.Card;
+import model.suits.Club;
+import model.suits.Diamond;
+import model.suits.Heart;
 import model.suits.ISuitRender;
+import model.suits.Spade;
 
 public class Stack extends Group {
 
@@ -120,7 +124,7 @@ public class Stack extends Group {
         ISuitRender cardSuit = cards.get(0).getSuit();
         if (this.cards.size() > 0) {
             int topValue = this.cards.get(this.cards.size() - 1).getValue();
-            if (cardSuit != this.cards.get(cards.size() - 1) && cards.get(0).getValue() == topValue - 1) {
+            if (suitCheck(cardSuit, this.cards.get(this.cards.size() - 1)) && cards.get(0).getValue() == topValue - 1) {
                 for (int i = 0; i < cards.size(); i++) {
                     int cardXLocation = xOffset + INNER_OFFSET;
                     int cardYLocation = Y_OFFSET + (this.cards.size() - coveredCards) * STACKED_CARD_HEIGHT;
@@ -139,6 +143,16 @@ public class Stack extends Group {
                 cards.get(i).updateLocation(cardXLocation, cardYLocation);
                 this.cards.add(cards.get(i));
             }
+            return true;
+        }
+        return false;
+    }
+
+    public boolean suitCheck(ISuitRender suit, Card card) {
+        if ((suit instanceof Heart || suit instanceof Diamond) && (card.getSuit() instanceof Club || card.getSuit() instanceof Spade)) {
+            return true;
+        }
+        else if ((suit instanceof Club || suit instanceof Spade) && (card.getSuit() instanceof Heart || card.getSuit() instanceof Diamond)) {
             return true;
         }
         return false;
