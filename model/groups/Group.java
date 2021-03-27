@@ -39,10 +39,6 @@ public abstract class Group {
         return cards;
     }
 
-    /*public Card getSelectedCard(int mouseY) {
-        return cards.get(cards.size() - 1);
-    }*/
-
     public int getSelectedCard(int mouseY) {
         return cards.size() - 1;
     }
