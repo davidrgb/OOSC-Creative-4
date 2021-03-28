@@ -15,7 +15,7 @@ public class GameCanvas extends JPanel {
     private GamePanel panel;
 
     private final int X_RESOLUTION = 1250;
-    private final int Y_RESOLUTION = 750;
+    private final int Y_RESOLUTION = 500;
 
     private int xOffset;
     private int yOffset;
@@ -48,7 +48,7 @@ public class GameCanvas extends JPanel {
 
         if (panel.getGame().getState() == Game.STATE.WIN) {
             xOffset = (X_RESOLUTION / 2) - (g.getFontMetrics().stringWidth("YOU WIN") / 2);
-            yOffset = 725;
+            yOffset = 400;
             g2.setColor(Color.white);
             g2.drawString("YOU WIN", xOffset, yOffset);
         }
